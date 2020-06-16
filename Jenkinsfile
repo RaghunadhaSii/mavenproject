@@ -4,7 +4,7 @@ node ('Agent1')
   def MavenHome = tool name: 'maven3.6.3', type: 'maven'
    stage('CheckoutCode') { 
        
-       git 'https://github.com/RaghunadhaSii/mavenproject.git'
+       git 'https://github.com/ravdy/hello-world-2.git'
    }
    
    stage('Build'){
