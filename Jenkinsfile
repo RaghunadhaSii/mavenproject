@@ -1,14 +1,27 @@
-//properties([parameters([choice(choices: ['master', 'development', 'feature', 'release'], description: 'select Branch to Build', name: 'branch')])])
-node ('Agent1')
+node ()
 {
-  def MavenHome = tool name: 'maven3.6.3', type: 'maven'
+  environment {
+         PATH = "${PATH}:${getmvnPath()}"
+    }
+
    stage('CheckoutCode') { 
-       
-       git 'https://github.com/ravdy/hello-world-2.git'
+       git 'https://github.com/RaghunadhaSii/mavenproject.git'
    }
-   
    stage('Build'){
-       sh "${MavenHome}/bin/mvn clean package"
+       sh "mvn package"
    }
-  
 }
+
+def getmvnPath(){
+    def mvnHome = tool name: 'Maven3.6.3', type: 'maven'
+    return "${mvnHome}/bin"
+}
+
+def uploadSpec = """{
+  "files": [
+    {
+      "pattern": "/var/lib/jenkins/workspace/JfrogDemo/target/*.jar",
+      "target": "http://ec2-35-154-119-40.ap-south-1.compute.amazonaws.com:8082/artifactory/maven-snapshot/"
+    }
+ ]
+}"""
