@@ -13,6 +13,16 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <distributionManagement>
+		<repository>
+			<id>JFrog-release</id>
+			<url>http://ec2-35-154-119-40.ap-south-1.compute.amazonaws.com:8082/artifactory/maven-snapshot/</url>
+		</repository>
+		<snapshotRepository>
+			<id>JFrog-snapshot</id>
+			<url>http://ec2-35-154-119-40.ap-south-1.compute.amazonaws.com:8082/artifactory/maven-snapshot/</url>
+		</snapshotRepository>		
+  </distributionManagement>
   </dependencies>
  
 </project>
