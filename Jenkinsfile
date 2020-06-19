@@ -4,23 +4,22 @@ node ()
    def server = Artifactory.newServer url: 'http://ec2-3-7-248-145.ap-south-1.compute.amazonaws.com:8081/artifactory', username: 'jenkins', password: 'admin@123'
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo 
- /* environment {
+  environment {
          PATH = "${PATH}:${getmvnPath()}"
     }
 
    stage('CheckoutCode') { 
        git 'https://github.com/RaghunadhaSii/mavenproject.git'
    }
-
-   stage('Build'){
-       sh "mvn package"
-      
-   }*/
   
-  stage ('Exec Maven') {
-       rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'package', buildInfo: buildInfo
-         //  rtMaven.run pom: 'pom.xml', goals: 'clean package'
-    } 
+   stage('Build'){
+       sh "mvn clean install"
+      
+   }
+  
+ /* stage ('Exec Maven') {
+        rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'clean install', buildInfo: buildInfo
+    } */
   
   
    stage ('Artifactory configuration') {
@@ -37,10 +36,10 @@ node ()
   
 }
 
-/*def getmvnPath(){
+def getmvnPath(){
     def mvnHome = tool name: 'Maven3.6.3', type: 'maven'
     return "${mvnHome}/bin"
-} */
+}
 
 
 
