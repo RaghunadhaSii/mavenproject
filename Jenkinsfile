@@ -9,7 +9,7 @@ node {
     }
 
     stage ('Artifactory configuration') {
-        rtMaven.tool = "${mvnHome}/bin"
+        rtMaven.tool = 'Maven3.6.3'
         rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server
         rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
         buildInfo = Artifactory.newBuildInfo()
