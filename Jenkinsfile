@@ -11,9 +11,9 @@ node ()
    stage('CheckoutCode') { 
        git 'https://github.com/RaghunadhaSii/mavenproject.git'
    }
-   stage('Build'){
-       sh "mvn package"
-   }
+  stage ('Exec Maven') {
+        rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'clean install', buildInfo: buildInfo
+    }
   
    stage ('Artifactory configuration') {
         rtMaven.tool = 'Maven3.6.3'
