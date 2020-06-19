@@ -16,11 +16,11 @@
   </dependencies>
 	<distributionManagement>
 		<repository>
-			<id>JFrog-release</id>
+			<id>libs-release-local</id>
 			<url>http://ec2-3-7-248-145.ap-south-1.compute.amazonaws.com:8081/artifactory/libs-release-local/</url>
 		</repository>
 		<snapshotRepository>
-			<id>JFrog-snapshot</id>
+			<id>libs-snapshot-local</id>
 			<url>http://ec2-3-7-248-145.ap-south-1.compute.amazonaws.com:8081/artifactory/libs-snapshot-local/</url>
 		</snapshotRepository>		
   </distributionManagement>
