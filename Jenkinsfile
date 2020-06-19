@@ -5,7 +5,7 @@ node {
     def mvnHome = tool name: 'Maven3.6.3', type: 'maven'
 
     stage ('Clone') {
-        git url: 'https://github.com/jfrog/project-examples.git'
+        git url: 'https://github.com/RaghunadhaSii/mavenproject.git'
     }
 
     stage ('Artifactory configuration') {
