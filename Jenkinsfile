@@ -17,9 +17,9 @@ node ()
       
    }
   
-  stage ('Exec Maven') {
+ /* stage ('Exec Maven') {
         rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'clean install', buildInfo: buildInfo
-    }
+    } */
   
   
    stage ('Artifactory configuration') {
