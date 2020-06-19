@@ -3,15 +3,18 @@ node {
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo
   
-    def mvnHome = tool name: 'Maven3.6.3', type: 'maven'
-   
+  
+    tools { 
+        maven 'Maven3.6.3' 
+        jdk 'jdk8' 
+    }
 
     stage ('Clone') {
         git url: 'https://github.com/RaghunadhaSii/mavenproject.git'
     }
 
     stage ('Artifactory configuration') {
-        rtMaven.tool = "${mvnHome}/bin"
+        //rtMaven.tool = "${mvnHome}/bin"
         rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server
         rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
         buildInfo = Artifactory.newBuildInfo()
