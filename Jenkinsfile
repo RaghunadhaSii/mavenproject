@@ -16,9 +16,11 @@ node ()
        sh "mvn package"
       
    }
+  
   stage ('Exec Maven') {
-        sh "clean install"
+        rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'clean install', buildInfo: buildInfo
     }
+  
   
    stage ('Artifactory configuration') {
         rtMaven.tool = 'Maven3.6.3'
