@@ -18,7 +18,7 @@ node ()
    }*/
   
   stage ('Exec Maven') {
-        rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'clean install', buildInfo: buildInfo
+        rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'package', buildInfo: buildInfo
     } 
   
   
