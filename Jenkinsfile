@@ -33,12 +33,11 @@ node ()
         server.publishBuildInfo buildInfo
         
     }
-  
-}
 
 def getmvnPath(){
     def mvnHome = tool name: 'Maven3.6.3', type: 'maven'
     return "${mvnHome}/bin"
+}
 }
 
 
