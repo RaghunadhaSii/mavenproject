@@ -1,9 +1,10 @@
-node ()
+node () 
 {
-  
-   def server = Artifactory.newServer url: 'http://ec2-15-206-211-187.ap-south-1.compute.amazonaws.com:8081/artifactory', username: 'jenkins', password: 'admin@123'
+    def server = Artifactory.newServer url: 'http://3.7.253.83:8081/artifactory', username: 'jenkins', password: 'admin@123'
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo 
+    def uploadSpec 
+    server.bypassProxy = true
   environment {
          PATH = "${PATH}:${getmvnPath()}"
     }
@@ -11,37 +12,42 @@ node ()
    stage('CheckoutCode') { 
        git 'https://github.com/RaghunadhaSii/mavenproject.git'
    }
-  
-   stage('Build'){
-       sh "mvn clean package"
-      
-   }
-  
- /* stage ('Exec Maven') {
-        rtMaven.run pom: '/var/lib/jenkins/workspace/JfrogDemo/mavenproject/pom.xml', goals: 'clean install', buildInfo: buildInfo
-    } */
-  
-  
-   stage ('Artifactory configuration') {
-        rtMaven.tool = 'Maven3.6.3'
-        rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server
-        rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
+   stage ('Maven Package') {
+         sh 'mvn clean package'
+    }
+    stage ('Artifactory configuration') {
+        rtMaven.tool = 'mvnHome'
+        rtMaven.deployer releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
+        rtMaven.resolver releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
         buildInfo = Artifactory.newBuildInfo()
+        //uploadjar = Artifactory.newuploadjar()
     }
   
-  stage ('Publish build info') {
+    stage ('Publish build info') {
         server.publishBuildInfo buildInfo
+        
+    }
+    stage ('Publish build jar') {
+        server.upload spec: uploadSpec, failNoOp: true
         
     }
 }
 
 def getmvnPath(){
-    def mvnHome = tool name: 'Maven3.6.3', type: 'maven'
+    def mvnHome = tool name: 'Maven-3.6.0', type: 'maven'
     return "${mvnHome}/bin"
 }
 
-
-
+def uploadSpec = """{
+  "files": [
+    {
+      "pattern": "${WORKSPACE}/$repoName/target/*.jar",
+      "target": "artifactory-build-info/JfrogDemo/"
+    }
+ ]
+}"""
+// server.upload spec: uploadSpec
+server.upload spec: uploadSpec, failNoOp: true
 
 
 
