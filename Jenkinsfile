@@ -1,7 +1,7 @@
 node ()
 {
   
-   def server = Artifactory.newServer url: 'http://ec2-15-206-211-187.ap-south-1.compute.amazonaws.com:8081/artifactory', username: 'jenkins', password: 'admin@123'
+   def server = Artifactory.newServer url: 'http://ec2-3-7-248-145.ap-south-1.compute.amazonaws.com:8081/artifactory', username: 'jenkins', password: 'admin@123'
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo 
   environment {
@@ -13,7 +13,7 @@ node ()
    }
   
    stage('Build'){
-       sh "mvn clean package"
+       sh "mvn clean install"
       
    }
   
@@ -35,6 +35,17 @@ node ()
     }
   
 }
+
+def getmvnPath(){
+    def mvnHome = tool name: 'Maven3.6.3', type: 'maven'
+    return "${mvnHome}/bin"
+}
+
+
+
+
+
+
 
 
 
