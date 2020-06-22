@@ -48,7 +48,7 @@ def uploadSpec = """{
     
      echo "in files section uploadspec"
       "pattern": "/var/lib/jenkins/workspace/JfrogDemo/target/myapp-1.0-SNAPSHOT.jar",
-      "target": "artifactory-build-info/JfrogDemo/"
+      "target": "libs-release-local/JfrogDemo/"
     }
  ]
 }"""
