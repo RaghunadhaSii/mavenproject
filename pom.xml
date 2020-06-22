@@ -16,6 +16,7 @@
         </snapshots>
         <releases>
             <enabled>true</enabled>
+           <updatePolicy>daily</updatePolicy>
         </releases>
     </repository>
 </repositories>
@@ -33,7 +34,6 @@
     <snapshotRepository>
       <id>libs-snapshot-local</id>
       <name>libs-snapshot-local</name>
-      <updatePolicy>never</updatePolicy>
       <url>http://15.206.127.210:8081/artifactory/libs-snapshot-local/</url>
     </snapshotRepository>
   </distributionManagement>
