@@ -6,6 +6,21 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   
+  <repositories>
+    <repository>
+        <id>libs-snapshot-local</id>
+        <url>>http://15.206.127.210:8081/artifactory/libs-snapshot-local</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+        </releases>
+    </repository>
+</repositories>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -19,6 +34,7 @@
     <snapshotRepository>
       <id>libs-snapshot-local</id>
       <name>libs-snapshot-local</name>
+      <updatePolicy>never</updatePolicy>
       <url>http://15.206.127.210:8081/artifactory/libs-snapshot-local/</url>
     </snapshotRepository>
   </distributionManagement>
