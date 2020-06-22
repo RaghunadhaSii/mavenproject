@@ -16,7 +16,6 @@
         </snapshots>
         <releases>
             <enabled>true</enabled>
-            <updatePolicy>daily</updatePolicy>
         </releases>
     </repository>
 </repositories>
