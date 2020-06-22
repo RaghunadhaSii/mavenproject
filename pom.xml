@@ -19,6 +19,18 @@
            <updatePolicy>daily</updatePolicy>
         </releases>
     </repository>
+     <repository>
+        <id>libs-release-local</id>
+        <url>>http://15.206.127.210:8081/artifactory/libs-release-local</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+           <updatePolicy>daily</updatePolicy>
+        </releases>
+    </repository>
 </repositories>
   
   <dependencies>
