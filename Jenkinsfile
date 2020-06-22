@@ -1,6 +1,6 @@
 node () 
 {
-    def server = Artifactory.newServer url: 'http://3.7.253.83:8081/artifactory', username: 'jenkins', password: 'admin@123'
+    def server = Artifactory.newServer url: 'http://15.206.127.210:8081/artifactory', username: 'jenkins', password: 'admin@123'
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo 
     def uploadSpec 
