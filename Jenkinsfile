@@ -1,13 +1,13 @@
 node () 
 {
-    def server = Artifactory.newServer url: 'http://15.206.127.210:8081/artifactory', username: 'jenkins', password: 'admin@123'
+   /* def server = Artifactory.newServer url: 'http://15.206.127.210:8081/artifactory', username: 'jenkins', password: 'admin@123'
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo 
     def uploadSpec 
     server.bypassProxy = true
   environment {
          PATH = "${PATH}:${getmvnPath()}"
-    }
+    }*/
 
    stage('CheckoutCode') { 
        git 'https://github.com/RaghunadhaSii/mavenproject.git'
@@ -15,23 +15,23 @@ node ()
    stage ('Maven Package') {
          sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven3.6.3/bin/mvn clean install deploy'
     }
-    stage ('Artifactory configuration') {
+    /*stage ('Artifactory configuration') {
         rtMaven.tool = 'mvnHome'
         rtMaven.deployer releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
         rtMaven.resolver releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
         buildInfo = Artifactory.newBuildInfo()
         //uploadjar = Artifactory.newuploadjar()
-    }
+    }*/
   
-    stage ('Publish build info') {
+   /* stage ('Publish build info') {
         server.publishBuildInfo buildInfo
         
-    }
-    stage ('Publish build jar') {
+    }*/
+   /* stage ('Publish build jar') {
     
      server.upload   spec: uploadSpec
         
-    }
+    }*/
 }
 
 def getmvnPath(){
@@ -40,7 +40,7 @@ def getmvnPath(){
 }
 
 
-def uploadSpec = """{
+/*def uploadSpec = """{
 
 
   "files": [
@@ -51,7 +51,7 @@ def uploadSpec = """{
       "target": "libs-release-local/JfrogDemo/"
     }
  ]
-}"""
+}""" */
 
 // server.upload spec: uploadSpec
 //server.upload spec: uploadSpec, failNoOp: true
