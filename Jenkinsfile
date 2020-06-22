@@ -29,7 +29,7 @@ node ()
     }
     stage ('Publish build jar') {
     
-     server.upload spec: uploadSpec
+     server.upload(uploadSpec)
         
     }
 }
@@ -55,7 +55,6 @@ def uploadSpec = """{
 
 // server.upload spec: uploadSpec
 //server.upload spec: uploadSpec, failNoOp: true
-
 
 
 
