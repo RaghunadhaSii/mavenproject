@@ -13,7 +13,7 @@ node ()
        git 'https://github.com/RaghunadhaSii/mavenproject.git'
    }
    stage ('Maven Package') {
-         sh 'mvn clean install deploy'
+         sh 'mvn clean install -U deploy'
     }
     stage ('Artifactory configuration') {
         rtMaven.tool = 'mvnHome'
