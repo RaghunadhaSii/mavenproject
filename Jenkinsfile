@@ -29,7 +29,7 @@ node ()
     }
     stage ('Publish build jar') {
     
-      server.upload spec: uploadSpec, failNoOp: true
+    //  server.upload spec: uploadSpec, failNoOp: true
         echo "after uploadSpec"
         
     }
