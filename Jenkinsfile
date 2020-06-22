@@ -17,8 +17,8 @@ node ()
     }
     stage ('Artifactory configuration') {
         rtMaven.tool = 'mvnHome'
-        rtMaven.deployer releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
-        rtMaven.resolver releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
+        rtMaven.deployer releaseRepo: 'jfrog-test1-repo', snapshotRepo: 'jfrog-test1-repo', server: server
+        rtMaven.resolver releaseRepo: 'jfrog-test1-repo', snapshotRepo: 'jfrog-test1-repo', server: server
         buildInfo = Artifactory.newBuildInfo()
         //uploadjar = Artifactory.newuploadjar()
     }
@@ -31,7 +31,7 @@ node ()
       echo "uploding artictats"
       echo "uploding artictats"
       echo "uploding artictats"
-        server.upload spec: uploadSpec, failNoOp: true
+        //server.upload spec: uploadSpec, failNoOp: true
         
     }
 }
