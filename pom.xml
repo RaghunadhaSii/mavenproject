@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.maaven.practice</groupId>
   <artifactId>myapp</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   
   <dependencies>
@@ -16,11 +16,11 @@
   </dependencies>
   
    <distributionManagement>
-    <repository>
+    <snapshotRepository>
       <id>libs-snapshot-local</id>
       <name>libs-snapshot-local</name>
       <url>http://15.206.127.210:8081/artifactory/libs-snapshot-local/</url>
-    </repository>
+    </snapshotRepository>
   </distributionManagement>
  
 </project>
