@@ -28,9 +28,9 @@ node ()
         
     }
     stage ('Publish build jar') {
-      echo "uploding artictats"
-      echo "uploding artictats"
-      echo "uploding artictats"
+     // echo "uploding artictats"
+     // echo "uploding artictats"
+      //echo "uploding artictats"
       server.upload spec: uploadSpec, failNoOp: true
         
     }
@@ -41,15 +41,12 @@ def getmvnPath(){
     return "${mvnHome}/bin"
 }
 
-def uploadSpec = """{
-      echo "entered uploadspec"
-
+def uploadSpec = """
+{    
   "files": [
     {
-     echo "in files section uploadspec"
       "pattern": "/var/lib/jenkins/workspace/JfrogDemo/target/*.jar",
       "target": "artifactory-build-info/JfrogDemo/"
-       echo "after files section uploadspec"
     }
  ]
 }"""
