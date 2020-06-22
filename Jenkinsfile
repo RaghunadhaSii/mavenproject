@@ -29,7 +29,7 @@ node ()
     }
     stage ('Publish build jar') {
     
-     server.upload(uploadSpec)
+     server.upload   spec: uploadSpec
         
     }
 }
