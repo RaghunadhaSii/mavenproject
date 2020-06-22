@@ -32,7 +32,20 @@
         </releases>
     </repository>
 </repositories>
-  
+  <pluginRepositories>
+    <pluginRepository>
+        <id>libs-snapshot-local</id>
+        <url>>http://15.206.127.210:8081/artifactory/libs-snapshot-local</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+        </releases>
+    </pluginRepository>
+</pluginRepositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
