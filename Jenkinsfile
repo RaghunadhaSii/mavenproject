@@ -20,7 +20,6 @@ node ()
         rtMaven.deployer releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
         rtMaven.resolver releaseRepo: 'jfrog-test-repo', snapshotRepo: 'jfrog-test-repo', server: server
         buildInfo = Artifactory.newBuildInfo()
-         uploadSpec = server.upload spec: uploadSpec, failNoOp: true
         //uploadjar = Artifactory.newuploadjar()
     }
   
@@ -43,10 +42,14 @@ def getmvnPath(){
 }
 
 def uploadSpec = """{
+      echo "entered uploadspec"
+
   "files": [
     {
+     echo "in files section uploadspec"
       "pattern": "/var/lib/jenkins/workspace/JfrogDemo/target/*.jar",
       "target": "artifactory-build-info/JfrogDemo/"
+       echo "after files section uploadspec"
     }
  ]
 }"""
