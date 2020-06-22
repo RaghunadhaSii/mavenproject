@@ -14,5 +14,14 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+   <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>MyCo Internal Repository</name>
+      <url>http://15.206.127.210:8081/artifactory</url>
+      <url>http://15.206.127.210:8082/artifactory/libs-snapshot-local/</url>
+    </repository>
+  </distributionManagement>
  
 </project>
