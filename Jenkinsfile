@@ -41,13 +41,13 @@ def getmvnPath(){
 def uploadSpec = """{
   "files": [
     {
-      "pattern": "${WORKSPACE}/$repoName/target/*.jar",
+      "pattern": "/var/lib/jenkins/workspace/JfrogDemo/target/*.jar",
       "target": "artifactory-build-info/JfrogDemo/"
     }
  ]
 }"""
 // server.upload spec: uploadSpec
-server.upload spec: uploadSpec, failNoOp: true
+//server.upload spec: uploadSpec, failNoOp: true
 
 
 
