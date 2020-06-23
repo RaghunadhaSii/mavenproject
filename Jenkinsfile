@@ -10,6 +10,9 @@ node ()
       
         // sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven3.6.3/bin/mvn clean install deploy'
     }
+    stage('Build Docker Image'){
+        sh 'docker build -t docker/java-web-app .'
+    }
 }
 
 
