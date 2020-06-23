@@ -13,6 +13,15 @@ node ()
     stage('Build Docker Image'){
         sh 'docker build -t docker/java-web-app .'
     }
+   stage('Push Docker Image'){
+        withCredentials([string(credentialsId: 'Docker_Hub_Pwd', variable: '')]) {
+           sh "docker login -u raghu046 -p ${Docker_Hub_Pwd}"
+    
+}
+        sh 'docker push raghu046/java-web-app'
+     }
+   
+   
 }
 
 
