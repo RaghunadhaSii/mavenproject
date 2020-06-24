@@ -17,7 +17,7 @@ node ()
         sh 'docker build -t jenkins/docker-repo:img .'
     }
     stage('push zip file '){
-        sh 'curl -X PUT -u jenkins:admin@123 -T /var/lib/jenkins/workspace/JfrogDemo/*.zip "http://3.7.248.31:8081/artifactory/docker-repo/Raghu.zip"'
+        sh 'curl -X PUT -u jenkins:admin@123 -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://3.7.248.31:8081/artifactory/docker-repo/DockerfileDemo.zip"'
     }
 
    
