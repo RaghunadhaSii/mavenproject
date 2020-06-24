@@ -18,8 +18,9 @@ node ()
     }
     stage('push zip file '){
         //sh 'curl -X PUT -u jenkins:admin@123 -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://3.7.248.31:8081/artifactory/docker-repo/DockerfileDemo.zip"'
+         sh 'curl -ujenkins:AP5CwLCs5fTaMJzYcXwPSZBjFMu -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://15.206.127.210:8081/artifactory/docker-repo/Dockerfile.zip"'
         
-        curl -ujenkins:AP5CwLCs5fTaMJzYcXwPSZBjFMu -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://15.206.127.210:8081/artifactory/docker-repo/Dockerfile.zip
+        
     }
 
    
