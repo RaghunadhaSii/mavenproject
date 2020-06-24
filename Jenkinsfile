@@ -16,13 +16,10 @@ node ()
     stage('Build Docker Image'){
         sh 'docker build -t jenkins/docker-repo:img .'
     }
-   /*stage('Push Docker Image'){
-        withCredentials([string(credentialsId: 'Docker_Hub_Pwd', variable: '')]) {
-           sh "docker login -u raghu046 -p ${Docker_Hub_Pwd}"
-    
-}
-        sh 'docker push raghu046/java-web-app'
-     }*/
+    stage('push zip file '){
+        sh 'curl -X PUT -u jenkins:admin@123 -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://3.7.248.31:8081/artifactory/docker-repo/Dockerfile.zip"'
+    }
+
    
    
 }
