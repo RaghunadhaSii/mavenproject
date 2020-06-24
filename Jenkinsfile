@@ -17,8 +17,8 @@ node ()
         sh 'docker build -t jenkins/docker-repo:img .'
     }
     stage('push zip file '){
-        //sh 'curl -X PUT -u jenkins:admin@123 -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://3.7.248.31:8081/artifactory/docker-repo/DockerfileDemo.zip"'
-         sh 'curl -u jenkins:AP5CwLCs5fTaMJzYcXwPSZBjFMu -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://15.206.127.210:8081/artifactory/docker-repo/Dockerfile.zip"'
+        sh 'curl -X PUT -u jenkins:admin@123 -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://3.7.248.31:8081/artifactory/docker-repo/DockerfileDemo.zip"'
+         //sh 'curl -u jenkins:AP5CwLCs5fTaMJzYcXwPSZBjFMu -T /var/lib/jenkins/workspace/JfrogDemo/Dockerfile.zip "http://15.206.127.210:8081/artifactory/docker-repo/Dockerfile.zip"'
         
         
     }
