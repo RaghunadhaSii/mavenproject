@@ -27,10 +27,10 @@ node ()
         
     }
     
-    stage('download Dockerfile to Jfrog') {
+   /* stage('download Dockerfile to Jfrog') {
         
-        curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/Dockerfile" /root/Raghu
-    }
+        curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/Dockerfile" 13.127.48.111
+    }*/
 
    
    
