@@ -30,10 +30,11 @@ node ()
     stage('download Dockerfile to Jfrog') {
         
         sshagent(['Jfrog_Credentional']) {
-       sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.6.232 docker service rm javawebapp || true'
+       sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.6.232'
+         sh 'curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/myapp-1.0-SNAPSHOT.jar"'
 }
         
-        //curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/Dockerfile" 13.127.48.111
+        //sh 'curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/Dockerfile" 13.127.48.111
     }
 
    
