@@ -27,10 +27,14 @@ node ()
         
     }
     
-   /* stage('download Dockerfile to Jfrog') {
+    stage('download Dockerfile to Jfrog') {
         
-        curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/Dockerfile" 13.127.48.111
-    }*/
+        sshagent(['Jfrog_Credentional']) {
+       sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.6.232 docker service rm javawebapp || true'
+}
+        
+        //curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/Dockerfile" 13.127.48.111
+    }
 
    
    
