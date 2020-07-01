@@ -8,10 +8,15 @@ node ('slaves')
    stage('CheckoutCode') { 
        git 'https://github.com/RaghunadhaSii/mavenproject.git'
    }
-   stage ('Maven Package') {
+   stage ('Maven Install') {
       sh "${MavenHome}/bin/mvn clean install"
       
         // sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven3.6.3/bin/mvn clean install deploy'
+    }
+    stage ('Maven Deploy') {
+      sh "${MavenHome}/bin/mvn clean deploy"
+      
+      // sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallat  ion/Maven3.6.3/bin/mvn clean install deploy'
     }
     stage('Build Docker Image'){
         sh 'docker build -t raghu046/docker-repo:img .'
