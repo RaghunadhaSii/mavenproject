@@ -14,7 +14,7 @@ node ()
         // sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven3.6.3/bin/mvn clean install deploy'
     }
     stage('Build Docker Image'){
-        sh 'docker build -t jenkins/docker-repo:img .'
+        sh 'docker build -t raghu046/docker-repo:img .'
     }
     stage('push Dockerfile to Jfrog'){
         //sh 'zip Dockerfile.zip Dockerfile .'
@@ -31,7 +31,7 @@ node ()
         
         sshagent(['Jfrog_Credentional']) {
        sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.6.232'
-         sh 'curl -X GET -u jenkins:admin@123 -O "http://13.232.169.102:8081/artifactory/docker-repo/myapp-1.0-SNAPSHOT.jar"'
+         sh 'curl -X GET -u jenkins:admin@123 -O "http://13.232.169.102:8081/artifactory/docker-repo/myapp-1.0-SNAPSHOT.jar"' 13.232.108.28
 }
         
         //sh 'curl -X GET -u jenkins:admin@123 -O "http://15.206.147.62:8081/artifactory/docker-repo/Dockerfile" 13.127.48.111
