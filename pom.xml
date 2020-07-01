@@ -9,7 +9,7 @@
   <repositories>
     <repository>
         <id>libs-snapshot-local</id>
-        <url>>http://15.206.147.62:8081/artifactory/libs-snapshot-local</url>
+        <url>>http://13.232.169.102:8081/artifactory/libs-snapshot-local</url>
         <snapshots>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
@@ -21,7 +21,7 @@
     </repository>
      <repository>
         <id>libs-release-local</id>
-        <url>>http://15.206.147.62:8081/artifactory/libs-release-local</url>
+        <url>>http://13.232.169.102:8081/artifactory/libs-release-local</url>
         <snapshots>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
@@ -35,7 +35,7 @@
   <pluginRepositories>
     <pluginRepository>
         <id>libs-snapshot-local</id>
-        <url>>http://15.206.147.62:8081/artifactory/libs-snapshot-local</url>
+        <url>>http://13.232.169.102:8081/artifactory/libs-snapshot-local</url>
         <snapshots>
             <enabled>true</enabled>
             <updatePolicy>daily</updatePolicy>
@@ -65,12 +65,12 @@
     <snapshotRepository>
       <id>libs-snapshot-local</id>
       <name>libs-snapshot-local</name>
-      <url>http://15.206.147.62:8081/artifactory/libs-snapshot-local/</url>
+      <url>http://13.232.169.102:8081/artifactory/libs-snapshot-local/</url>
     </snapshotRepository>
       <repository>
       <id>libs-snapshot-local</id>
       <name>libs-snapshot-local</name>
-      <url>http://15.206.147.62:8081/artifactory/libs-release-local/</url>
+      <url>http://13.232.169.102:8081/artifactory/libs-release-local/</url>
     </repository>
   </distributionManagement>
  
