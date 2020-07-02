@@ -1,4 +1,4 @@
-node () 
+node ('slaves') 
 {
     //def server = Artifactory.newServer url: 'http://3.7.248.31:8081/artifactory', username: 'jenkins', password: 'admin@123'
     //def rtMaven = Artifactory.newMavenBuild()
