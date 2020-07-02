@@ -14,7 +14,7 @@ node ('slaves')
         // sh '/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven3.6.3/bin/mvn clean install deploy'
     }
     stage('Build Docker Image'){
-        sh 'docker build -t docker/java-webapp:${buildNumber} .'
+        sh 'docker build -t raghu046/java-webapp:${buildNumber} .'
     }
     /*stage('push Dockerfile to Jfrog'){
         //sh 'zip Dockerfile.zip Dockerfile .'
